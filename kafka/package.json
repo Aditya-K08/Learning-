@@ -1,0 +1,16 @@
+{
+  "name": "kafka",
+  "version": "1.0.0",
+  "description": "kafka is distributed, durable, partioned and append only log event.\r - Distributed : Data and workloads can be spread across mutiple brokers.\r - Durable : Records can be persisted and replicated to survive failures.\r - Partitioned : Topic are divided into independent order logs\r - Append only : New records are appended rather than modifying earlier logs \r - Event log : Consumers track their own positions through the records.",
+  "main": "kafka.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "kafkajs": "^2.2.4"
+  }
+}

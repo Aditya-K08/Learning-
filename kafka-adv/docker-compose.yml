@@ -1,0 +1,25 @@
+services:
+  kafka:
+    image: apache/kafka:4.4.0
+    ports:
+      - "9092:9092"
+    # The official image boots in a local standalone KRaft configuration
+    # when launched with its built-in default settings. Dev only.
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: localonly
+      POSTGRES_DB: orders
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./sql/schema.sql:/docker-entrypoint-initdb.d/001-schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U app -d orders"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+volumes:
+  pgdata:

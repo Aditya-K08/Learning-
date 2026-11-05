@@ -1,0 +1,28 @@
+{
+  "name": "kafka-four-hour-bootcamp",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "KafkaJS fundamentals and a transactional outbox/inbox example",
+  "scripts": {
+    "topics": "node src/topics.js",
+    "produce": "node src/produce.js",
+    "consume": "node src/consume.js",
+    "dlq": "node src/dlq-consumer.js",
+    "api": "node src/api.js",
+    "relay": "node src/outbox-relay.js",
+    "worker": "node src/order-worker.js",
+    "inspect": "node src/inspect.js",
+    "lag": "node src/lag.js",
+    "check": "node scripts/check-syntax.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.6.1",
+    "express": "^5.1.0",
+    "kafkajs": "2.2.4",
+    "pg": "^8.16.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
